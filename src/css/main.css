@@ -5,3 +5,8 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+section {
+    height: 100vh;
+    width: 100vh;
+}

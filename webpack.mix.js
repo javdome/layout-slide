@@ -1,3 +1,5 @@
+let mix = require('laravel-mix');
+
 const tailwindcss = require('tailwindcss');
 
 //If we don't use sass we will not need the purgecss wrapper of Laravel-mix

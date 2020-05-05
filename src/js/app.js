@@ -7,12 +7,17 @@ let previousButton = document.getElementById('previousButton');
 previousButton.addEventListener("click", previousPage)
 
 //Inicializacion
-for (section of sections) {
-    section.classList.add("hidden");
+// for (section of sections) {
+//     section.classList.add("hidden");
+// }
+
+for (let i=0; i < sections.length ; i++) {
+    sections[0].classList.add("h-screen");
+    if (i>0) sections[i].classList.add("h-0");
 }
 
 let activeSection = 0;
-sections[0].classList.remove("hidden");
+// sections[0].classList.remove("hidden");
 visibilityButtons();
 
 
@@ -45,29 +50,33 @@ mc.on('swipedown', function(){
 
 //Funciones
 function nextPage(){
-    sections[activeSection].classList.add("hidden");
+    sections[activeSection].classList.remove("h-screen");
+    sections[activeSection].classList.add("h-0");
     activeSection++;
-    sections[activeSection].classList.remove("hidden");
+    sections[activeSection].classList.remove("h-0");
+    sections[activeSection].classList.add("h-screen");
     visibilityButtons();
 }
 
 function previousPage(){
-    sections[activeSection].classList.add("hidden");
+    sections[activeSection].classList.remove("h-screen");
+    sections[activeSection].classList.add("h-0");
     activeSection--;
-    sections[activeSection].classList.remove("hidden");
+    sections[activeSection].classList.remove("h-0");
+    sections[activeSection].classList.add("h-screen");
     visibilityButtons();
 }
 
 function visibilityButtons(){
     if (activeSection == 0) {
-        previousButton.classList.add("hidden");
+        previousButton.classList.add("invisible");
     } else {
-        previousButton.classList.remove("hidden");
+        previousButton.classList.remove("invisible");
     }
 
     if (activeSection == (sections.length -1)) {
-        nextButton.classList.add("hidden");
+        nextButton.classList.add("invisible");
     } else {
-        nextButton.classList.remove("hidden");
+        nextButton.classList.remove("invisible");
     }
 }
